@@ -1,0 +1,14 @@
+Answers to the Questions:
+Question 1: The purpose of fgets() is to read a line of input from the user and if it fails, an error message is printed and the loop continues. The fgets() is preferred over scanf() since it is more robust and better suited for reading complete lines of input, making it a safer choice for implementing command-line interfaces. fgets() ensures Buffer Overflow Protection, Whitespace Handling, Newline Character, Error Handling, and Simplicity for Command Input.
+
+Question 2: It is necessary to null-terminate the arguments array before passing it to execvp() because it can ensure that the execute function will operate as it should. This will serve as an End of Argument Indicator towards execvp(), it will ensure safety, helps keep a consistent interface, and it will make it easier for developers to construct and manipulate argument lists without worrying about the specific length.
+
+Question 3: The fork() creates a new process by duplicating the current one so that the child process can execute the same code as the parent and can either continue running concurrently or execute a different program, while the execvp() replaces the current process's image with a new program, effectively turning it into another program altogether without creating a new process but instead reusing the existing one (usually called in the child process after a fork()).
+
+Question 4: the cd command needs to be executed in the parent process to ensure that changes to the current working directory are persistent and affect the user's shell environment directly which will align with user expectations and the fundamental design of how shells operate.
+
+Question 5: Pipes enable processes to communicate by linking their input and output streams in which the data written to a pipe is stored in a buffer until it is read. If no process is reading from the pipe, the writing process will block if the pipe's buffer is full, ensuring that data is not lost and that processes remain synchronized and if the writer attempts to write when the reader has terminated, it may receive an error signal.
+
+Question 6: Proper error handling in a shell is essential for providing a robust, user-friendly experience and ensuring that system resources are managed effectively and ensuring the shell can maintain stability, prevent resource leaks, and build user confidence when addressing errors from functions like fork() and execvp(). If the errors aren’t properly handled, there could be significant operational issues and diminish the overall functionality of the shell.
+
+Question 7: After running the command “cat file.txt | wc -l”, The output would be the number of lines that is in file.txt. The pipe allows for efficient communication between the cat and wc processes, enabling the output of one command to be seamlessly processed by another without intermediate files making it possible to chain commands together for powerful command-line operations.
